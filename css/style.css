@@ -99,27 +99,110 @@ section {
 
 /* header */
 
+.open {
+  display: flex !important;
+}
+
 .header {
   padding: 14px 0;
   background-color: var(--background-color);
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 60;
   box-shadow: 4px 0px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.header__row {
+  justify-content: space-between;
 }
 
 .header__logo {
   flex-shrink: 0;
 }
 
-.header__menu {
-  display: flex;
-  gap: 57px;
-}
-
 .header__nav {
   display: flex;
   align-items: center;
+}
+
+.header__burger {
+  display: none;
+  position: relative;
+  align-self: center;
+  z-index: 50;
+  justify-content: flex-end;
+  align-items: center;
+  width: 30px;
+  height: 25px;
+}
+
+.header__burger span {
+  display: inherit;
+  height: 3px;
+  width: 100%;
+  background-color: var(--dark-grey);
+  transform: scale(1);
+}
+
+.header__burger::before,
+.header__burger::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background-color: var(--dark-grey);
+  transition: all 0.3s ease-in-out;
+}
+
+.header__burger::before {
+  top: 0;
+}
+
+.header__burger::after {
+  bottom: 0;
+}
+
+.header__burger.active::before {
+  top: 50%;
+  transform: rotate(45deg) translate(0, 50%);
+}
+
+.header__burger.active::after {
+  bottom: 36%;
+  right: 2px;
+  transform: rotate(-45deg) translate(0, 50%);
+}
+
+.header__burger.active span {
+  transform: scale(0);
+}
+
+.header__menu {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+}
+
+.header__menu.active {
+  top: 90px;
+  text-align: right;
+}
+
+.header__item {
+  display: flex;
+}
+
+.bought-items {
+  width: 7px;
+  color: red;
+  font-size: 10px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 100%;
+  padding-top: 14px;
+  margin-right: -18px;
+  border-radius: 50%;
 }
 
 .header__link {
@@ -193,23 +276,23 @@ section {
   background-color: var(--active-color);
 }
 
-/* second */
+/* sample */
 
-.second {
+.sample {
   background-color: var(--background-color);
   padding: 30px 0;
   justify-content: space-between;
 }
 
-.second__title {
+.sample__title {
   text-align: center;
 }
 
-.second__row {
+.sample__row {
   row-gap: 30px;
 }
 
-.second__card {
+.sample__card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -222,29 +305,29 @@ section {
   background-position: 90% 50%;
 }
 
-.second__card-one {
+.sample__card-one {
   background-image: url("../img/krug.png");
 }
 
-.second__card-two {
+.sample__card-two {
   background-image: url("../img/mask.png");
 }
 
-.second__card-three {
+.sample__card-three {
   background-image: url("../img/cifrykotiki_1.png");
 }
 
-.second__list {
+.sample__list {
   display: flex;
 }
 
-.second_selected {
+.sample_selected {
   font-size: 15px;
   font-weight: 700;
   color: var(--active-color);
 }
 
-.second__caption {
+.sample__caption {
   font-size: 25px;
   color: black;
   margin: 0;
@@ -252,11 +335,11 @@ section {
   text-shadow: 2px 2px 4px rgb(255, 255, 255);
 }
 
-.second__descr {
+.sample__descr {
   width: 50%;
 }
 
-.second__btn {
+.sample__btn {
   font-size: 16px;
   line-height: 100%;
   text-transform: uppercase;
@@ -267,16 +350,16 @@ section {
   border-radius: 10px;
 }
 
-.second__btn:focus-visible {
+.sample__btn:focus-visible {
   outline: 2px solid var(--hover-color);
   outline-offset: 2px;
 }
 
-.second__btn:hover {
+.sample__btn:hover {
   background-color: var(--hover-color);
 }
 
-.second__btn:active {
+.sample__btn:active {
   background-color: var(--active-color);
 }
 
@@ -284,7 +367,7 @@ section {
 .footer {
   display: flex;
   align-items: center;
-  padding: 20px 0;
+  padding: 8px 0;
   min-height: 50px;
   background-color: var(--title-color);
 }
@@ -297,12 +380,19 @@ section {
   fill: var(--active-color);
 }
 
+.footer-fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 /* about us page */
 
 .story {
   min-height: 350px;
   padding-top: 30px;
-  padding-bottom: 30px;
+  padding-bottom: 70px;
 }
 
 .story__title {
@@ -364,7 +454,7 @@ section {
 
 .catalog__btn {
   width: 150px;
-  padding: 5px 10px;
+  padding: 10px 10px;
   background-color: var(--title-color);
   text-align: center;
   outline: solid 1px black;
@@ -472,11 +562,4 @@ section {
 
 .cont-subblock {
   margin-bottom: 15px;
-}
-
-.footer-fixed {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }

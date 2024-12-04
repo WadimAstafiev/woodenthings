@@ -14,13 +14,14 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/media.css" />
     <link type="image/x-icon" href="img/favicon.png" rel="shortcut icon" />
+    <script src="js/script.js"></script>
   </head>
   <body>
     <header class="header">
       <div class="container">
-        <div class="row">
+        <div class="row header__row">
           <div
-            class="col-lg-3 col-md-3 col-sm-12 d-flex justify-content-lg-start justify-content-center header__logo"
+            class="col-lg-3 col-sm-5 d-flex justify-content-start header__logo"
           >
             <a href="index.html" class="logo">
               <img
@@ -31,9 +32,7 @@
               />
             </a>
           </div>
-          <div
-            class="col-lg-9 col-md-9 col-sm-12 d-flex justify-content-lg-end justify-content-end"
-          >
+          <div class="col-lg-9 col-sm-3 d-flex justify-content-end">
             <nav class="header__nav" aria-label="Главное меню">
               <ul class="list-reset header__menu">
                 <li class="header__item">
@@ -48,8 +47,45 @@
                 <li class="header__item">
                   <a href="contacts.html" class="header__link">Контакты</a>
                 </li>
+                <li class="header__item bag">
+                  <span id="bag-id" class="bought-items">0</span>
+                  <svg
+                    viewBox="0 0 32 32"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                  >
+                    <defs>
+                      <style>
+                        .cls-1 {
+                          fill: none;
+                        }
+                      </style>
+                    </defs>
+                    <title />
+                    <g
+                      data-name="Layer 2"
+                      id="Layer_2"
+                      fill="grey"
+                      stroke-width="0.5px"
+                    >
+                      <path
+                        d="M23.52,29h-15a5.48,5.48,0,0,1-5.31-6.83L6.25,9.76a1,1,0,0,1,1-.76H24a1,1,0,0,1,1,.7l3.78,12.16a5.49,5.49,0,0,1-.83,4.91A5.41,5.41,0,0,1,23.52,29ZM8,11,5.11,22.65A3.5,3.5,0,0,0,8.48,27h15a3.44,3.44,0,0,0,2.79-1.42,3.5,3.5,0,0,0,.53-3.13L23.28,11Z"
+                      />
+                      <path
+                        d="M20,17a1,1,0,0,1-1-1V8a3,3,0,0,0-6,0v8a1,1,0,0,1-2,0V8A5,5,0,0,1,21,8v8A1,1,0,0,1,20,17Z"
+                      />
+                    </g>
+                    <g id="frame">
+                      <rect class="cls-1" height="32" width="32" />
+                    </g>
+                  </svg>
+                </li>
               </ul>
             </nav>
+            <div class="header__burger" onclick="burgerMenu()">
+              <span class="burger-span"></span>
+            </div>
           </div>
         </div>
       </div>
@@ -59,7 +95,7 @@
       <section class="catalog d-flex">
         <div class="container">
           <ul class="row list-reset catalog__row d-flex align-content-center">
-            <li class="li-reset col-lg-3 col-md-6">
+            <li class="li-reset col-lg-3 col-md-6 col-sm-12 catalog__li">
               <div class="catalog__card d-flex align-items-center">
                 <a class="d-flex align-items-center catalog__link">
                   <img src="img/krug.png" alt="Тарелка" class="catalog__img" />
@@ -71,16 +107,18 @@
                     </h3>
                     <span class="text-reset">1000 &#8381;</span>
                   </div>
-                  <a
+                  <button
+                    id="catalogBtn1"
                     href="catalog.html"
                     class="btn-reset catalog__btn hvr-radial-in"
+                    onclick="catalogBtn()"
                   >
                     В корзину
-                  </a>
+                  </button>
                 </div>
               </div>
             </li>
-            <li class="li-reset col-lg-3 col-md-6">
+            <li class="li-reset col-lg-3 col-md-6 col-sm-12 catalog__li">
               <div class="catalog__card d-flex align-items-center">
                 <a class="d-flex align-items-center catalog__link">
                   <img src="img/mask.png" alt="Маска" class="catalog__img" />
@@ -90,16 +128,18 @@
                     <h3 class="catalog__title text-reset">Старинная маска</h3>
                     <span class="text-reset">1500 &#8381;</span>
                   </div>
-                  <a
+                  <button
+                    id="catalogBtn2"
                     href="catalog.html"
                     class="btn-reset catalog__btn hvr-radial-in"
+                    onclick="catalogBtn()"
                   >
                     В корзину
-                  </a>
+                  </button>
                 </div>
               </div>
             </li>
-            <li class="li-reset col-lg-3 col-md-6">
+            <li class="li-reset col-lg-3 col-md-6 col-sm-12 catalog__li">
               <div class="catalog__card d-flex align-items-center">
                 <a class="d-flex align-items-center catalog__link">
                   <img
@@ -113,16 +153,18 @@
                     <h3 class="catalog__title text-reset">Ёлочные игрушки</h3>
                     <span class="text-reset">700 &#8381; / шт.</span>
                   </div>
-                  <a
+                  <button
+                    id="catalogBtn3"
                     href="catalog.html"
                     class="btn-reset catalog__btn hvr-radial-in"
+                    onclick="catalogBtn()"
                   >
                     В корзину
-                  </a>
+                  </button>
                 </div>
               </div>
             </li>
-            <li class="li-reset col-lg-3 col-md-6">
+            <li class="li-reset col-lg-3 col-md-6 col-sm-12 catalog__li">
               <div class="catalog__card d-flex align-items-center">
                 <a class="d-flex align-items-center catalog__link">
                   <img
@@ -138,16 +180,18 @@
                     </h3>
                     <span class="text-reset">900 &#8381;</span>
                   </div>
-                  <a
+                  <button
+                    id="catalogBtn4"
                     href="catalog.html"
                     class="btn-reset catalog__btn hvr-radial-in"
+                    onclick="catalogBtn()"
                   >
                     В корзину
-                  </a>
+                  </button>
                 </div>
               </div>
             </li>
-            <li class="li-reset col-lg-3 col-md-6">
+            <li class="li-reset col-lg-3 col-md-6 col-sm-12 catalog__li">
               <div class="catalog__card d-flex align-items-center">
                 <a class="d-flex align-items-center catalog__link">
                   <img
@@ -163,16 +207,18 @@
                     </h3>
                     <span class="text-reset">800 &#8381;</span>
                   </div>
-                  <a
+                  <button
+                    id="catalogBtn5"
                     href="catalog.html"
                     class="btn-reset catalog__btn hvr-radial-in"
+                    onclick="catalogBtn()"
                   >
                     В корзину
-                  </a>
+                  </button>
                 </div>
               </div>
             </li>
-            <li class="li-reset col-lg-3 col-md-6">
+            <li class="li-reset col-lg-3 col-md-6 col-sm-12 catalog__li">
               <div class="catalog__card d-flex align-items-center">
                 <a class="d-flex align-items-center catalog__link">
                   <img
@@ -188,16 +234,18 @@
                     </h3>
                     <span class="text-reset catalog__price">1100 &#8381;</span>
                   </div>
-                  <a
+                  <button
+                    id="catalogBtn6"
                     href="catalog.html"
                     class="btn-reset catalog__btn hvr-radial-in"
+                    onclick="catalogBtn()"
                   >
                     В корзину
-                  </a>
+                  </button>
                 </div>
               </div>
             </li>
-            <li class="li-reset col-lg-3 col-md-6">
+            <li class="li-reset col-lg-3 col-md-6 col-sm-12 catalog__li">
               <div class="catalog__card d-flex align-items-center">
                 <a class="d-flex align-items-center catalog__link">
                   <img
@@ -211,16 +259,18 @@
                     <h3 class="catalog__title text-reset">Разделочная доска</h3>
                     <span class="text-reset catalog__price">1100 &#8381;</span>
                   </div>
-                  <a
+                  <button
+                    id="catalogBtn7"
                     href="catalog.html"
                     class="btn-reset catalog__btn hvr-radial-in"
+                    onclick="catalogBtn()"
                   >
                     В корзину
-                  </a>
+                  </button>
                 </div>
               </div>
             </li>
-            <li class="li-reset col-lg-3 col-md-6">
+            <li class="li-reset col-lg-3 col-md-6 col-sm-12 catalog__li">
               <div class="catalog__card d-flex align-items-center">
                 <a class="d-flex align-items-center catalog__link">
                   <img
@@ -234,12 +284,14 @@
                     <h3 class="catalog__title text-reset">Кулоны</h3>
                     <span class="text-reset catalog__price">600 &#8381;</span>
                   </div>
-                  <a
+                  <button
+                    id="catalogBtn8"
                     href="catalog.html"
                     class="btn-reset catalog__btn hvr-radial-in"
+                    onclick="catalogBtn()"
                   >
                     В корзину
-                  </a>
+                  </button>
                 </div>
               </div>
             </li>
